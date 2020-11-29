@@ -87,7 +87,7 @@ Object.defineProperties(Math, {
 			const cos12 = this.cos(rLatA) * this.cos(rLatB);
 			const cosLamda = this.cos(rLonD);
 
-			return this.degrees(this.acos(sin12 + (cos12 * cosLamda)));
+			return this.degrees(this.acos(sin12 + (cos12 * cosLamda))) as number;
 		},
 		enumerable: false,
 		writable: false,
