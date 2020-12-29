@@ -67,62 +67,62 @@ describe('index', () => {
 		n = Math.ceil(1.00000001, 2);
 		expect(n).toBe(1.01);
 
-		// Math.degrees
+		// Math.deg
 
-		n = Math.round(Math.degrees(0), 14);
+		n = Math.round(Math.deg(0), 14);
 		expect(n).toBe(0);
 
-		n = Math.round(Math.degrees(Math.PI), 14);
+		n = Math.round(Math.deg(Math.PI), 14);
 		expect(n).toBe(180);
 
-		n = Math.round(Math.degrees(2 * Math.PI), 14);
+		n = Math.round(Math.deg(2 * Math.PI), 14);
 		expect(n).toBe(360);
 
-		n = Math.round(Math.degrees(3 * Math.PI / 2), 14);
+		n = Math.round(Math.deg(3 * Math.PI / 2), 14);
 		expect(n).toBe(270);
 
-		n = Math.round(Math.degrees(Math.PI / 2), 14);
+		n = Math.round(Math.deg(Math.PI / 2), 14);
 		expect(n).toBe(90);
 
-		n = Math.round(Math.degrees(Math.PI / 4), 14);
+		n = Math.round(Math.deg(Math.PI / 4), 14);
 		expect(n).toBe(45);
 
-		n = Math.round(Math.degrees(Math.PI / 6), 14);
+		n = Math.round(Math.deg(Math.PI / 6), 14);
 		expect(n).toBe(30);
 
-		n = Math.round(Math.degrees(-Math.PI / 2), 14);
+		n = Math.round(Math.deg(-Math.PI / 2), 14);
 		expect(n).toBe(-90);
 
-		// Math.radians
+		// Math.rad
 
-		n = Math.radians(0);
+		n = Math.rad(0);
 		expect(n).toBe(0);
 
-		n = Math.round(Math.radians(180), 14);
+		n = Math.round(Math.rad(180), 14);
 		expect(n).toBe(Math.round(Math.PI, 14));
 
-		n = Math.round(Math.radians(360), 14);
+		n = Math.round(Math.rad(360), 14);
 		expect(n).toBe(Math.round(2 * Math.PI, 14));
 
-		n = Math.round(Math.radians(270), 14);
+		n = Math.round(Math.rad(270), 14);
 		expect(n).toBe(Math.round(3 * Math.PI / 2, 14));
 
-		n = Math.round(Math.radians(90), 14);
+		n = Math.round(Math.rad(90), 14);
 		expect(n).toBe(Math.round(Math.PI / 2, 14));
 
-		n = Math.round(Math.radians(45), 14);
+		n = Math.round(Math.rad(45), 14);
 		expect(n).toBe(Math.round(Math.PI / 4, 14));
 
-		n = Math.round(Math.radians(30), 14);
+		n = Math.round(Math.rad(30), 14);
 		expect(n).toBe(Math.round(Math.PI / 6, 14));
 
-		n = Math.round(Math.radians(-90), 14);
+		n = Math.round(Math.rad(-90), 14);
 		expect(n).toBe(Math.round(-Math.PI / 2, 14));
 
-		const a = Math.sphereAngle({ latitude: 0, longitude: 90 }, { latitude: 90, longitude: 0 });
+		const a = Math.spha({ latitude: 0, longitude: 90 }, { latitude: 90, longitude: 0 });
 		expect(a).toBe(90);
 
-		const d = Math.sphereDistance(6371, { latitude: 55.797416, longitude: 49.111374 }, { latitude: 55.795997, longitude: 49.127173 });
+		const d = Math.sphd(6371, { latitude: 55.797416, longitude: 49.111374 }, { latitude: 55.795997, longitude: 49.127173 });
 		expect(Math.floor(d, 4)).toBe(1);
 
 		done();
