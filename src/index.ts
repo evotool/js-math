@@ -64,37 +64,37 @@ Object.defineProperties(Math, {
 		enumerable: false,
 		writable: false,
 	},
-	degrees: {
-		value(x: number): number {
-			return x * $180pi;
+	deg: {
+		value(radians: number): number {
+			return radians * $180pi;
 		},
 		enumerable: false,
 		writable: false,
 	},
-	radians: {
-		value(alpha: number): number {
-			return alpha * $pi180;
+	rad: {
+		value(degrees: number): number {
+			return degrees * $pi180;
 		},
 		enumerable: false,
 		writable: false,
 	},
-	sphereAngle: {
+	spha: {
 		value(locationA: Location, locationB: Location): number {
-			const rLatA = this.radians(locationA.latitude);
-			const rLatB = this.radians(locationB.latitude);
-			const rLonD = this.radians(this.abs(locationA.longitude - locationB.longitude));
+			const rLatA = this.rad(locationA.latitude);
+			const rLatB = this.rad(locationB.latitude);
+			const rLonD = this.rad(this.abs(locationA.longitude - locationB.longitude));
 			const sin12 = this.sin(rLatA) * this.sin(rLatB);
 			const cos12 = this.cos(rLatA) * this.cos(rLatB);
 			const cosLamda = this.cos(rLonD);
 
-			return this.degrees(this.acos(sin12 + (cos12 * cosLamda))) as number;
+			return this.deg(this.acos(sin12 + (cos12 * cosLamda))) as number;
 		},
 		enumerable: false,
 		writable: false,
 	},
-	sphereDistance: {
+	sphd: {
 		value(radius: number, locationA: Location, locationB: Location): number {
-			return $pi180 * radius * this.sphereAngle(locationA, locationB);
+			return $pi180 * radius * this.spha(locationA, locationB);
 		},
 		enumerable: false,
 		writable: false,
@@ -102,6 +102,11 @@ Object.defineProperties(Math, {
 });
 
 export {};
+
+interface Location {
+	latitude: number;
+	longitude: number;
+}
 
 declare global {
 	interface Math {
@@ -111,14 +116,17 @@ declare global {
 		round(x: number, digits?: number): number;
 		ceil(x: number, digits?: number): number;
 		floor(x: number, digits?: number): number;
-		degrees(x: number): number;
-		radians(alpha: number): number;
-		sphereAngle(locationA: Location, locationB: Location): number;
-		sphereDistance(radius: number, locationA: Location, locationB: Location): number;
-	}
+		deg(radians: number): number;
+		rad(degrees: number): number;
 
-	interface Location {
-		latitude: number;
-		longitude: number;
+		/**
+		 * Sphere angle
+		 */
+		spha(locationA: Location, locationB: Location): number;
+
+		/**
+		 * Sphere distance
+		 */
+		sphd(radius: number, locationA: Location, locationB: Location): number;
 	}
 }
