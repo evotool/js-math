@@ -1,6 +1,6 @@
 {
   "name": "@evojs/math",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Nodejs math extension",
   "license": "MIT",
   "main": "index.js",
@@ -14,14 +14,16 @@
     "lint": "eslint \"src/**/*.ts\" --fix --max-warnings=0"
   },
   "devDependencies": {
-    "@evojs/eslint-plugin": "^2.5.0",
-    "@types/jest": "^27.4.0",
-    "@types/node": "^16.11.21",
-    "eslint": "^8.7.0",
-    "glob": "^7.2.0",
-    "jest": "^27.4.7",
-    "ts-jest": "^27.1.3",
-    "typescript": "^4.5.5"
+    "@evojs/eslint-plugin": "^5.0.1",
+    "@types/jest": "^29.2.2",
+    "@types/node": "^16.18.3",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
+    "glob": "^8.0.3",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3",
+    "typescript": "^4.8.4"
   },
   "jest": {
     "collectCoverage": true,
@@ -36,12 +38,12 @@
     "testEnvironment": "node",
     "testRegex": ".spec.ts$",
     "transform": {
-      "^.+\\.(ts|js)$": "ts-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.spec.json"
-      }
+      "^.+\\.(ts|js)$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.spec.json"
+        }
+      ]
     }
   },
   "author": {
