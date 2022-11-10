@@ -1,4 +1,3 @@
-
 const math_random = Math.random.bind(Math);
 const math_round = Math.round.bind(Math);
 const math_ceil = Math.ceil.bind(Math);
@@ -14,6 +13,7 @@ const $pi180 = Math.PI / 180;
 function random(): number;
 function random(max: number): number;
 function random(min: number, max: number): number;
+
 function random(min?: number, max?: number): number {
   if (min !== void 0) {
     if (max === void 0) {
@@ -60,6 +60,14 @@ function floor(x: number, digits: number = 0): number {
   return math_floor(x);
 }
 
+function addp(value: number, percent: number): number {
+  return value * (1 + (percent / 100));
+}
+
+function subp(value: number, percent: number): number {
+  return value * (1 - (percent / 100));
+}
+
 function sum(...xyz: number[]): number {
   let sum = 0;
 
@@ -86,6 +94,7 @@ function ln(x: number): number {
 
 function log(x: number): number;
 function log(x: number, y: number): number;
+
 function log(x: number, y?: number): number {
   return y === void 0 ? math_log(x) : math_log(y) / math_log(x);
 }
@@ -124,6 +133,8 @@ export {
   round,
   ceil,
   floor,
+  addp,
+  subp,
   sum,
   mul,
   ln,
